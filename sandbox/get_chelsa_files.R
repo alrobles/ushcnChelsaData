@@ -22,22 +22,6 @@ get_chelsa_files <- function(variable, model, scenario, yearStart, yearEnd){
     }
   }
   
-  
-  if(variable == "tas" || variable == "tavg"){
-    stop("CHELSA tas data is unavaliable")
-  }
-  
-  if(variable == "tmin"){
-    variable <- "tasmin"
-  }
-  if(variable == "tmax"){
-    variable <- "tasmax"
-  }
-  
-  if(variable == "prcp"){
-    variable <- "prcp"
-  }
-  
   url <- chelsa_ts_url(variable, model, scenario, yearStart, yearEnd)
   filename <- chelsa_filename(variable, model, scenario, yearStart, yearEnd)
   
@@ -51,7 +35,6 @@ get_chelsa_files <- function(variable, model, scenario, yearStart, yearEnd){
   
   if(!file.exists(filePath)){
     # check if the url exists
-    
     if (!url_exists(url)) {
       return("Can't access environmental data.")
     }

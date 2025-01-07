@@ -9,15 +9,15 @@
 #' @return A tibble with the ushcn data
 #' @keywords internal
 read_ushcn_files <- function(file, stationIndex){
-  if(stationIndex){
-    return(NULL)
-  }
+  # if(stationIndex == 1){
+  #   return(NULL)
+  # }
   #fixed width columns
   fileWidths <- c(16, rep(9, 12))
   archive::archive_read(file, file = stationIndex) |>
     readr::read_lines() |>
     base::I() |> #read file "AsIs" to pass to the parser 
-    vroom::vroom_fwf( vroom::fwf_widths(fileWidths),
+    readr::read_fwf( readr::fwf_widths(fileWidths),
                       show_col_types = FALSE,
                       col_types = c("ccccccccccccc") )
 }

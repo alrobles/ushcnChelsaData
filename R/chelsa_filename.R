@@ -7,5 +7,5 @@
 #' @return A string value with the CHELSA time series name file
 #' @keywords internal
 chelsa_filename <- function(variable, model, scenario, yearStart, yearEnd){
-  stringr::str_glue("CHELSAcmip5ts_{variable}_{mod0el}_{scenario}_{yearStart}-{yearEnd}_V1.1.nc")
+  stringr::str_glue("CHELSAcmip5ts_{variable}_{model}_{scenario}_{yearStart}-{yearEnd}_V1.1.nc")
 }

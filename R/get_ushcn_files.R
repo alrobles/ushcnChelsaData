@@ -20,6 +20,13 @@ get_ushcn_files <- function(variable){
     }
   }
   
+  if(variable == "pr"){
+    variable <- "prcp"
+  }
+  if(variable == "tas"){
+    variable <- "tavg"
+  }
+  
   filename <- stringr::str_glue("ushcn.{variable}.latest.FLs.52j.tar.gz")
   
   url <- stringr::str_glue("{baseURL}{filename}")
@@ -36,7 +43,6 @@ get_ushcn_files <- function(variable){
     if (!url_exists(url)) {
       return("Can't access environmental data.")
     }
-    
     
     req <- httr2::request(url) |>
       httr2::req_progress()
