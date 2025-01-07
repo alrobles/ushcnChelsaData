@@ -46,7 +46,7 @@ get_ushcn_data <- function(variable, allow_parallel = TRUE, silent = FALSE){
   fileList <- untar(filePath, list = TRUE)
   
   
-  index <- 2:lenght(fileList)
+  index <- 2:length(fileList)
   p <- progressr::progressor(steps = length(index))
   
   
