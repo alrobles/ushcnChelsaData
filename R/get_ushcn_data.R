@@ -50,7 +50,7 @@ get_ushcn_data <- function(variable, allow_parallel = TRUE, silent = FALSE){
   p <- progressr::progressor(steps = length(index))
   
   
-  df <- iter(1, function(x){
+  df <- iter(index, function(x){
     p()
     ushcnChelsaData:::read_ushcn_files(filePath, x)})
   
